@@ -5,6 +5,7 @@ import net.minecraft.world.entity.EntityType;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.phoenix492.registration.ModDataMaps;
 import net.phoenix492.simpledamagecaps.SimpleDamageCaps;
 import net.phoenix492.util.TagKeys;
 
@@ -26,20 +27,15 @@ public class DamageEventHandler {
             return;
         }
 
-        // Temporary code to test functionality while I try to figure out why custom datamaps aren't working.
-        if (entityType.is(TagKeys.Entities.DEFAULT_DAMAGE_CAP) && event.getNewDamage() > 15f) {
-            event.setNewDamage(15f);
-        }
+       Integer dataCap = BuiltInRegistries.ENTITY_TYPE.getData(ModDataMaps.DAMAGE_CAPS, BuiltInRegistries.ENTITY_TYPE.getResourceKey(entityType).get());
 
-//        Integer dataCap = BuiltInRegistries.ENTITY_TYPE.getData(ModDataMaps.DAMAGE_CAPS, BuiltInRegistries.ENTITY_TYPE.getResourceKey(entityType).get());
-//
-//        if (dataCap == null) {
-//            return;
-//        }
-//
-//        if (event.getNewDamage() > dataCap) {
-//            event.setNewDamage(dataCap);
-//        }
+       if (dataCap == null) {
+           return;
+       }
+
+       if (event.getNewDamage() > dataCap) {
+           event.setNewDamage(dataCap);
+       }
 
     }
 
