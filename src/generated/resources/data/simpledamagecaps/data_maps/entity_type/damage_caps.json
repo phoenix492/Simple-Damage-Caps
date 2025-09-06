@@ -1,6 +1,5 @@
 {
   "values": {
-    "#simpledamagecaps:default_damage_cap": 15,
-    "minecraft:warden": 5
+    "#simpledamagecaps:default_damage_cap": 15
   }
 }
