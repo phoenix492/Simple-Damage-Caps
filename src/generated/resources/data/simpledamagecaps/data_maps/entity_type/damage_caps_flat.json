@@ -1,6 +1,6 @@
 {
   "values": {
     "#simpledamagecaps:default_flat_damage_cap": 15,
-    "minecraft:warden": 0
+    "#simpledamagecaps:invincible": 0
   }
 }
