@@ -1,0 +1,6 @@
+{
+  "values": {
+    "#simpledamagecaps:default_percentage_damage_cap": 0.05,
+    "minecraft:wither": 0.15
+  }
+}

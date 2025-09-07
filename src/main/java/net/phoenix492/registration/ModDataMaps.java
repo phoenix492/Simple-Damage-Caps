@@ -12,14 +12,23 @@ import net.phoenix492.simpledamagecaps.SimpleDamageCaps;
 
 @EventBusSubscriber
 public class ModDataMaps {
-    public static final DataMapType<EntityType<?>, Integer> DAMAGE_CAPS = DataMapType.builder(
-        ResourceLocation.fromNamespaceAndPath(SimpleDamageCaps.MODID, "damage_caps"),
+    public static final DataMapType<EntityType<?>, Integer> DAMAGE_CAPS_FLAT = DataMapType.builder(
+        ResourceLocation.fromNamespaceAndPath(SimpleDamageCaps.MODID, "damage_caps_flat"),
         Registries.ENTITY_TYPE,
         Codec.INT
     ).build();
 
+    public static final DataMapType<EntityType<?>, Float> DAMAGE_CAPS_PERCENT = DataMapType.builder(
+        ResourceLocation.fromNamespaceAndPath(SimpleDamageCaps.MODID, "damage_caps_percent"),
+        Registries.ENTITY_TYPE,
+        Codec.FLOAT
+    ).build();
+
+
+
     @SubscribeEvent
     public static void registerDataMapTypes(RegisterDataMapTypesEvent event) {
-        event.register(DAMAGE_CAPS);
+        event.register(DAMAGE_CAPS_FLAT);
+        event.register(DAMAGE_CAPS_PERCENT);
     }
 }

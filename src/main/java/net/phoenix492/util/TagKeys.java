@@ -9,7 +9,9 @@ import net.phoenix492.simpledamagecaps.SimpleDamageCaps;
 
 public class TagKeys {
     public static class Entities {
-        public static final TagKey<EntityType<?>> DEFAULT_DAMAGE_CAP = createTag(SimpleDamageCaps.MODID, "default_damage_cap");
+        public static final TagKey<EntityType<?>> DEFAULT_FLAT_DAMAGE_CAP = createTag(SimpleDamageCaps.MODID, "default_flat_damage_cap");
+        public static final TagKey<EntityType<?>> DEFAULT_PERCENTAGE_DAMAGE_CAP = createTag(SimpleDamageCaps.MODID, "default_percentage_damage_cap");
+        public static final TagKey<EntityType<?>> INVINCIBLE = createTag(SimpleDamageCaps.MODID, "invincible");
 
         private static TagKey<EntityType<?>> createTag(String namespace, String name) {
             return TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(namespace, name));
